@@ -8,6 +8,12 @@ RUN wget https://golang.org/dl/go1.16.3.linux-amd64.tar.gz && \
     chown -R root:root /usr/local/go
 ENV PATH PATH=$PATH:/usr/local/go/bin
 
+ENV GOPATH /go
+ENV PATH $GOPATH/bin:$PATH
+RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
+WORKDIR $GOPATH
+
+
 
 
 
